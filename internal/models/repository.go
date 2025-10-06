@@ -1,16 +1,27 @@
 package models
 
+import (
+	"github.com/google/uuid"
+)
+
 type Repository struct {
-	ID             uint `json:"id" gorm:"primaryKey"`
-	Name           string
-	RepositoryType []string // Ou un vrai truc plutôt qu'une clé en string
+	ID            uuid.UUID `json:"id" gorm:"primaryKey"`
+	Name          string
+	ArtefactTypes []ArtefactType
+	Type          RepositoryType
+	Env           RepositoryEnv
 }
 
-// Déclaration d'un ENUM, a voir si on utilise ça ou pas ?
-// type Repository int
-// const (
-//     Generic ServerState = iota
-//     Docker
-//     Maven
-//     NPM
-// )
+type RepositoryType string
+type RepositoryEnv string
+
+const (
+	Local   RepositoryType = "local"
+	Remote  RepositoryType = "remote"
+	Virtual RepositoryType = "virtual"
+)
+
+const (
+	Dev  RepositoryEnv = "dev"
+	Prod RepositoryEnv = "prod"
+)
