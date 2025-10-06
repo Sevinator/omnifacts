@@ -1,0 +1,35 @@
+Registry d'artéfacts universelle
+donc plein de types d'artefacts 
+
+chaque type est géré par un MS "gestionnaire"
+chaque "gestionnaire d'artefact" est responsable du protocol d'aquisitioin et de restitution de l'artefact 
+chaque "gestionnaire d'artefact" est responsable du modèle de métadonnées de ces artefacts
+chaque "gestionnaire d'artefact" scale individuellement et à possiblement sa propre BDD (je sais pas)
+
+il existe une partie "core" composée de :
+* une gateway 
+* un module d'authentification et de permission RBAC
+* un module de stockage des "objets" manipulés par les "gestionnaires d'artefacts"
+* un module d'evennement sur lequel seront greffer les actions automatiques /  les autres MS plus tard
+* un module de routage pour séléctionner le bon "gestionnaire d'artefact"
+
+on utilise un format pivot pour réutiliser des logiques dans les MS core : le conteneur
+grace a ORAS (https://oras.land/docs/) on converti n'importe quoi en "image de conteneur"
+c'est a dire:
+* un manifest
+* une suite de layers
+-> ca permet de profiter de la non duplication des layers si ces derniers sont bien choisis
+ex: 
+un artefact maven est composé de plusieurs jar. chacun de ces jar est un "layer"
+comme ca, si un jar est utilisé dans plusieurs artefcts, il n'est pas dupliqué par le système, juste le layer est référencé plusieurs fois.
+pour les conteneurs : pas de probleme, OCI est compatible
+pour helm, terraform : OCI est compatible
+pour pipy, npm et les autres, a débatre... soit 1 module = 1 layer, soit 1 fichier = 1 layer.
+
+
+pour l'accès aux differents outils externe + la gestion des MS je propose d'utiliser DAPR.
+c'est une suite de sidecar qui permet d'abstraire entierrement la gestion de la bdd, du s3, du broker, des cron etc
+
+proposition de roadmap simplifié pour "faire qqch" dans un temps raisonnable:
+se concentrer sur les modules de stockage d'"objets", de routage et 1 seul "gestionnaire d'artefact"
+
