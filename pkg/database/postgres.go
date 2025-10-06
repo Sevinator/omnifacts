@@ -8,7 +8,7 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 
-	"omnifactory/internal/models"
+	"omnifacts/internal/models"
 )
 
 var DB *gorm.DB

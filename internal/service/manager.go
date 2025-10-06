@@ -1,7 +1,7 @@
 package service
 
 import (
-	"omnifactory/internal/storage"
+	"omnifacts/internal/storage"
 	// "log/slog"
 )
 

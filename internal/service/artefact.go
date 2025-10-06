@@ -1,8 +1,8 @@
 package service
 
 import (
-	"omnifactory/internal/db"
-	"omnifactory/internal/models"
+	"omnifacts/internal/db"
+	"omnifacts/internal/models"
 )
 
 type ArtefactService interface {
