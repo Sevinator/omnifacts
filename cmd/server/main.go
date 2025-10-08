@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"os"
 
-	"omnifactory/internal/api"
-	"omnifactory/internal/config"
-	"omnifactory/internal/db"
-	"omnifactory/internal/service"
-	"omnifactory/pkg/database"
+	"omnifacts/internal/api"
+	"omnifacts/internal/config"
+	"omnifacts/internal/db"
+	"omnifacts/internal/service"
+	"omnifacts/pkg/database"
 )
 
 // import (
@@ -32,7 +32,7 @@ func main() {
 	cfg := config.Load()
 
 	// Établir la connexion à la base de données
-	database.Connect()
+	database.Connect(cfg)
 	database.Migrate()
 
 	// Initialiser les couches

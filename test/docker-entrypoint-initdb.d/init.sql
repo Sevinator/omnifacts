@@ -1,0 +1,4 @@
+CREATE USER omnifacts WITH PASSWORD 'omnifacts';
+CREATE DATABASE omnifacts;
+GRANT ALL PRIVILEGES ON DATABASE omnifacts TO omnifacts;
+GRANT ALL PRIVILEGES ON SCHEMA public TO omnifacts;
