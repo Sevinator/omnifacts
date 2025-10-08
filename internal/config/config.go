@@ -24,12 +24,12 @@ func Load() *Config {
 	}
 
 	return &Config{
-		Port: getEnv("PORT", "6666"),
-		// DBHost:     getEnv("DB_HOST", "localhost"),
-		// DBPort:     getEnv("DB_PORT", "5432"),
-		// DBUser:     getEnv("DB_USER", "postgres"),
-		// DBPassword: getEnv("DB_PASSWORD", ""),
-		// DBName:     getEnv("DB_NAME", "todo_api"),
+		Port:       getEnv("PORT", "6666"),
+		DBHost:     getEnv("DB_HOST", "localhost"),
+		DBPort:     getEnv("DB_PORT", "5432"),
+		DBUser:     getEnv("DB_USER", "postgres"),
+		DBPassword: getEnv("DB_PASSWORD", "password"),
+		DBName:     getEnv("DB_NAME", "postgres"),
 	}
 }
 
