@@ -1,7 +1,7 @@
 package db
 
 import (
-	"omnifactory/internal/models"
+	"omnifacts/internal/models"
 
 	"gorm.io/gorm"
 )
