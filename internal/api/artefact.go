@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"omnifactory/internal/models"
-	"omnifactory/internal/service"
-	"omnifactory/internal/utils"
+	"omnifacts/internal/models"
+	"omnifacts/internal/service"
+	"omnifacts/internal/utils"
 
 	"github.com/gorilla/mux"
 )

@@ -3,8 +3,8 @@ package api
 import (
 	"log/slog"
 	"net/http"
-	"omnifactory/internal/service"
-	"omnifactory/internal/utils"
+	"omnifacts/internal/service"
+	"omnifacts/internal/utils"
 
 	"github.com/gorilla/mux"
 )
